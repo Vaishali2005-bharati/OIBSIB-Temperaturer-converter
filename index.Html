@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dual Temperature Converter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef4f9;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .converter {
+      background: #ffffff;
+      max-width: 420px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    input, select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px 0;
+      width: 80%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0077ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005ecc;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+   <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+  <div class="converter">
+    <h2>Temperature Converter</h2>
+    <select id="conversionType">
+      <option value="CtoF">Celsius to Fahrenheit</option>
+      <option value="FtoC">Fahrenheit to Celsius</option>
+    </select>
+    <br>
+    <input type="number" id="tempInput" placeholder="Enter temperature">
+    <br>
+    <button onclick="convertTemp()">Convert</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convertTemp() {
+      const value = parseFloat(document.getElementById("tempInput").value);
+      const type = document.getElementById("conversionType").value;
+      let result = "";
+
+      if (isNaN(value)) {
+        result = "Please enter a valid number.";
+      } else if (type === "CtoF") {
+        const fahrenheit = (value * 9/5) + 32;
+        result = `${value}°C is ${fahrenheit.toFixed(2)}°F`;
+      } else if (type === "FtoC") {
+        const celsius = (value - 32) * 5/9;
+        result = `${value}°F is ${celsius.toFixed(2)}°C`;
+      }
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>

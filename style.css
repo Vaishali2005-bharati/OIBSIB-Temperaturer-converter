@@ -1,0 +1,20 @@
+body {
+  background: linear-gradient(to right, #89f7fe, #66a6ff);
+}
+button:hover {
+  background-color: #0047ab;
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+input {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px #66a6ff;
+}
+body.dark-theme {
+  background-color: #222;
+  color: #eee;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
